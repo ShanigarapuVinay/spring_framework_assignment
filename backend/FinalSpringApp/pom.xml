@@ -19,6 +19,7 @@
     <maven.compiler.target>17</maven.compiler.target>
     <sonar.organization>vinay-shanigarapu</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.projectKey>ShanigarapuVinay_spring_framework_assignment</sonar.projectKey>
   </properties>
 
   <dependencies>
@@ -181,6 +182,12 @@
       <version>0.8.12</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.sonarsource.scanner.maven</groupId>
+      <artifactId>sonar-maven-plugin</artifactId>
+      <version>3.9.0.2155</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -234,12 +241,6 @@
               </goals>
             </execution>
           </executions>
-        </plugin>
-        <!-- Sonar Maven plugin -->
-        <plugin>
-          <groupId>org.sonarsource.scanner.maven</groupId>
-          <artifactId>sonar-maven-plugin</artifactId>
-          <version>3.9.1.2184</version>
         </plugin>
       </plugins>
     </pluginManagement>
