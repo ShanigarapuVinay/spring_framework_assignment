@@ -1,0 +1,10 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light mb-3 p-1">
+    <h2 class="navbar-brand m-3">Restaurants Hub</h2>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto me-5">
+            <li class="nav-item"><a class="nav-link" href="/FinalSpringApp/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/FinalSpringApp/restaurants/list">Restaurants</a></li>
+            <li class="nav-item"><a class="nav-link" href="/FinalSpringApp/recipes/list">Recipes</a></li>
+        </ul>
+    </div>
+</nav>
