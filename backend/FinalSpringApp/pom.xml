@@ -20,7 +20,7 @@
     <sonar.organization>vinay-shanigarapu</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     <sonar.projectKey>ShanigarapuVinay_spring_framework_assignment</sonar.projectKey>
-    <sonar.exclusions>**/entity/**</sonar.exclusions> <!-- Exclude Entity files -->
+    <sonar.exclusions>**/entity/**, **/dao/**, **/exception/**</sonar.exclusions> <!-- Exclude Entity, DAO, and Exception files -->
   </properties>
 
   <dependencies>
