@@ -170,13 +170,26 @@ public class RestaurantControllerTest {
     }
 
     @Test
-    public void testUpdateRecipes_NoRecipesSelected() {
+    public void testUpdateRecipes_NullRecipeIds() {
         Restaurant restaurant = new Restaurant();
         when(restaurantService.getRestaurantById(1)).thenReturn(restaurant);
 
         String viewName = restaurantController.updateRecipes(1, null);
         assertEquals("redirect:list", viewName);
 
+        verify(restaurantService, times(1)).getRestaurantById(1);
+        verify(restaurantService, times(1)).saveOrUpdateRestaurant(restaurant);
+    }
+
+    @Test
+    public void testUpdateRecipes_EmptyRecipeIds() {
+        Restaurant restaurant = new Restaurant();
+        when(restaurantService.getRestaurantById(1)).thenReturn(restaurant);
+
+        String viewName = restaurantController.updateRecipes(1, Arrays.asList());
+        assertEquals("redirect:list", viewName);
+
+        assertNull(restaurant.getRecipes());
         verify(restaurantService, times(1)).getRestaurantById(1);
         verify(restaurantService, times(1)).saveOrUpdateRestaurant(restaurant);
     }
