@@ -113,7 +113,7 @@ public class RecipeController {
     @PostMapping("/{recipeId}/update-review/{reviewId}")
     public String updateReview(@PathVariable int recipeId, @PathVariable int reviewId, @Valid @ModelAttribute("review") Review review, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            log.warn("Validation errors found in addReview: {}", bindingResult.getAllErrors());
+            log.warn("Validation errors found in updateReview: {}", bindingResult.getAllErrors());
             return "review";
         }
         review.setId(reviewId);

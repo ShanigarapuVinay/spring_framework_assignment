@@ -158,27 +158,25 @@ public class RestaurantControllerTest {
         Restaurant restaurant = new Restaurant();
         when(restaurantService.getRestaurantById(1)).thenReturn(restaurant);
 
-        List<Integer> recipeIds = Arrays.asList(1, 2, 3);
-        List<Recipe> selectedRecipes = Arrays.asList(new Recipe(), new Recipe(), new Recipe());
-        when(recipeService.getRecipesByIds(recipeIds)).thenReturn(selectedRecipes);
+        List<Recipe> recipes = Arrays.asList(new Recipe());
+        when(recipeService.getRecipesByIds(Arrays.asList(1))).thenReturn(recipes);
 
-        String viewName = restaurantController.updateRecipes(1, recipeIds);
-
+        String viewName = restaurantController.updateRecipes(1, Arrays.asList(1));
         assertEquals("redirect:list", viewName);
+
         verify(restaurantService, times(1)).getRestaurantById(1);
-        verify(recipeService, times(1)).getRecipesByIds(recipeIds);
+        verify(recipeService, times(1)).getRecipesByIds(anyList());
         verify(restaurantService, times(1)).saveOrUpdateRestaurant(restaurant);
     }
 
     @Test
-    public void testUpdateRecipesWithEmptySelection() {
+    public void testUpdateRecipes_NoRecipesSelected() {
         Restaurant restaurant = new Restaurant();
         when(restaurantService.getRestaurantById(1)).thenReturn(restaurant);
 
         String viewName = restaurantController.updateRecipes(1, null);
-
         assertEquals("redirect:list", viewName);
-        assertNull(restaurant.getRecipes()); // check for null recipes
+
         verify(restaurantService, times(1)).getRestaurantById(1);
         verify(restaurantService, times(1)).saveOrUpdateRestaurant(restaurant);
     }

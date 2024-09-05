@@ -61,7 +61,7 @@ public class RestaurantController {
     @PostMapping("/update-restaurant/{id}")
     public String updateRestaurant(@PathVariable int id, @Valid @ModelAttribute("restaurant") Restaurant restaurant, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            log.warn("Validation errors found in addRestaurant: {}", bindingResult.getAllErrors());
+            log.warn("Validation errors found in updateRestaurant: {}", bindingResult.getAllErrors());
             return "restaurant";
         }
         restaurant.setId(id);
