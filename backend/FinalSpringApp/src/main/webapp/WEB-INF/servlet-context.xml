@@ -31,12 +31,21 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <!-- Property placeholder to load external properties -->
+    <bean id="propertyConfigurer" class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:application.properties</value>
+            </list>
+        </property>
+    </bean>
+
     <!-- Define Database DataSource / Connection pool -->
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/final_spring_app?useSSL=false&amp;serverTimezone=UTC" />
-        <property name="username" value="springapp" />
-        <property name="password" value="springapp" />
+        <property name="jdbcUrl" value="${DB_URL}" />
+        <property name="username" value="${DB_USERNAME}" />
+        <property name="password" value="${DB_PASSWORD}" />
 
         <!-- connection pool properties -->
         <property name="maximumPoolSize" value="5" />
