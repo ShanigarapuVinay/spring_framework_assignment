@@ -24,7 +24,7 @@
                     <td><a href="update-recipe/${recipe.id}" class="btn btn-success">Update</a></td>
                     <td><a href="delete-recipe/${recipe.id}"
                            onclick="if (!(confirm('Are you sure!! This process is inevitable'))) return false"
-                           class="btn btn-warning">Delete</a></td>
+                           class="btn btn-danger">Delete</a></td>
                 </tr>
             </c:forEach>
         </tbody>
